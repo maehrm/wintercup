@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["geochart"]});
+      google.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+
+          var data = google.visualization.arrayToDataTable([
+              ['都道府県','優勝回数'],
+              ['秋田',20],
+              ['宮城',8],
+              ['福岡',6],
+              ['東京',4],
+              ['京都',4],
+              ['愛知',2],
+              ['宮崎',2],
+              ['広島',1],
+              ['福井',1],
+              ['大阪',1],
+              ['山形',1],
+              ['茨城',1],
+          ]);
+          var options = {
+              region: 'JP',
+              resolution: 'provinces',
+          };
+
+          var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+          chart.draw(data, options);
+      }
+    </script>
+    <title>🏀ウインターカップ都道府県別優勝回数(男子)</title>
+  </head>
+  <body>
+    <h1>🏀<a href="https://maehrm.hatenablog.com/entry/2020/12/25/121241">ウインターカップ都道府県別優勝回数(男子)</a></h1>
+    <div id="regions_div" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
